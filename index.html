@@ -9,153 +9,177 @@
   <script src="lib/p5.speech.js"></script>
   <script src="lib/p5.sound.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
 
   <script src="addons/p5.dom.min.js"></script>
   <script src="addons/p5.sound.min.js"></script>
   <script src="javascript/sketch.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
   <link rel="shortcut icon" type="image/png" href="fav.png">
   <link rel="shortcut icon" type="image/png" href="fav.png">
   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <style>
     body {
       overflow: hidden;
     }
-
-    .nav {
-      font-family: 'Poppins', sans-serif;
-      width: 250px;
-      height: 100vh;
-      background-color: #08081A;
-      font-size: 11pt;
-      color: white;
-      padding: 22px;
-      line-height: 1.3;
-    }
-
-    .welcome {
-      position: relative;
-      top: 10px;
-      font-size: 15pt;
-      line-height: 1.5;
-    }
-
-    #upload {
-      position: relative;
-      top: 35px;
-      border-style: dashed;
-      border-color: #0066FF;
-      border-width: 2px;
-      text-align: center;
-      padding-top: 25px;
-      width: 200px;
-      height: 43px;
-    }
-
-    .or {
-      position: relative;
-      top: 56px;
-    }
-
-    .background {
-      z-index: 2;
-      top: 0px;
-      position: absolute;
-      width: 250px;
-      height: 100vh;
-      background-color: #08081A;
-    }
-
-    .play {
-      transition: 0.5s;
-      font-size: 20pt;
-      z-index: 3;
-      color: white;
-      position: absolute;
-      top: 22px;
-      left: 22px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 20pt;
-      background-color: #08081A;
-      text-decoration: underline;
-    }
-
-    .name {
-      transition: 0.5s;
-      z-index: 4;
-      position: relative;
-      left: 22px;
-      top: -96vh;
-      width: 200px;
-      color: white;
-      font-family: 'Poppins', sans-serif;
-      font-size: 11pt;
-      line-height: 1.8;
-    }
-
-
-
-    .save {
-      transition: 0.5s;
-      font-family: 'Poppins', sans-serif;
-      z-index: 4;
-      position: relative;
-      top: -93vh;
-      left: 22px;
-      color: white;
-      border-style: solid;
-      border-color: #0066FF;
-      border-width: 2px;
-      text-align: center;
-      padding-top: 25px;
-      padding-bottom: 25px;
-      width: 200px;
-      background-color: #08081A;
-      font-size: 11pt;
-      padding-top: 25px;
-      padding-bottom: 25px;
-      width: 200px;
-    }
-
-
-
-    .save:hover {
-      transition: 0.1s;
-      background-color: #0066FF;
-    }
-
-    .back {
-      transition: 0.5s;
-      font-family: 'Poppins', sans-serif;
-      z-index: 4;
-      position: relative;
-      top: -88vh;
-      left: 22px;
-      color: white;
-      font-size: 11pt;
-      text-decoration: underline;
-    }
-
-
-    .back:hover {
-      transition: 0.3s;
-      color: #0066FF;
-    }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="nav">
-      <div class="welcome">Welcome to Audio Visualizer</div>
-      <div id="upload">Drop an audio file here</div>
+  <div class="hero ">
+    <div class="hero_main appear">
+      <div class="hero__color-circle-1"></div>
+      <div class="hero__color-circle-2"></div>
+      <div class="hero__hidden-circle"></div>
 
+      <svg class="hero__logo rotate" width="563" height="561" viewBox="0 0 563 561" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M51.1519 298.715L81.9829 311.491L82.3189 329.773L1.15991 294.8L0.730957 271.457L80.5529 233.53L80.8979 252.388L50.5569 266.288L51.1519 298.715ZM13.5999 283.186L36.4329 292.658L36.0699 272.88L13.5999 283.186Z"
+          fill="#EE2EFF" />
+        <path
+          d="M70.527 222.164C64.0656 223.007 57.0347 221.787 49.434 218.506L9.31201 201.188L15.557 186.722L54.622 203.586C61.872 206.716 67.9133 207.278 72.746 205.272C77.5786 203.266 81.2253 199.413 83.686 193.712C86.1473 188.011 86.4507 182.714 84.596 177.821C82.7413 172.928 78.189 168.917 70.939 165.789L31.874 148.924L38.118 134.459L78.24 151.779C85.84 155.061 91.549 159.342 95.367 164.622C99.0756 169.6 101.23 175.562 101.558 181.761C101.791 188.004 100.627 194.22 98.1516 199.956C95.6756 205.692 91.9501 210.802 87.247 214.914C82.51 218.926 76.693 221.448 70.527 222.164Z"
+          fill="#EE2EFF" />
+        <path
+          d="M91.8051 72.2554C97.2915 67.117 103.899 63.3272 111.105 61.1864C117.843 59.2148 125.004 59.2099 131.745 61.1724C138.597 63.1344 144.83 67.21 150.445 73.3993C156.009 79.5327 159.435 86.1037 160.722 93.1124C162.017 100.039 161.316 107.192 158.701 113.735C155.906 120.7 151.519 126.914 145.89 131.877L119.401 155.909L65.311 96.2864L91.8051 72.2554ZM145.529 103.405C145.923 96.9927 143.39 90.7767 137.929 84.7573C132.468 78.738 126.528 75.6134 120.108 75.3834C113.688 75.1514 107.525 77.7144 101.619 83.0724L86.8 96.5184L121.263 134.505L136.084 121.06C141.987 115.704 145.136 109.819 145.529 103.405Z"
+          fill="#EE2EFF" />
+        <path d="M169.236 21.9199L203.336 94.8399L189.064 101.515L154.964 28.5939L169.236 21.9199Z" fill="#EE2EFF" />
+        <path
+          d="M215.425 67.5629C210.659 61.6145 207.612 54.4743 206.617 46.9171C205.622 39.36 206.715 31.6745 209.779 24.6949C212.852 18.1371 217.646 12.535 223.65 8.48486C229.607 4.42173 236.435 1.81438 243.583 0.872796C250.732 -0.0687906 258.002 0.681715 264.808 3.06387C271.658 5.4206 277.74 9.59057 282.408 15.1299C287.175 21.0784 290.221 28.2192 291.216 35.7769C292.211 43.3347 291.116 51.0205 288.05 57.9999C284.977 64.5578 280.183 70.1599 274.179 74.2099C268.222 78.273 261.394 80.8804 254.246 81.822C247.097 82.7635 239.827 82.013 233.021 79.6309C226.173 77.2727 220.092 73.1021 215.425 67.5629V67.5629ZM272.668 51.7299C274.451 47.3814 275.066 42.6423 274.453 37.9827C273.839 33.323 272.017 28.905 269.168 25.1669C266.421 21.7884 262.793 19.2353 258.686 17.7899C254.495 16.3584 250.031 15.9146 245.64 16.4929C241.25 17.0712 237.052 18.6561 233.375 21.1239C229.781 23.5829 226.938 26.9882 225.16 30.9629C223.377 35.3115 222.762 40.0508 223.376 44.7106C223.99 49.3703 225.811 53.7886 228.66 57.5269C231.407 60.9058 235.035 63.4587 239.143 64.9029C243.333 66.3349 247.798 66.7791 252.189 66.2008C256.579 65.6224 260.776 64.0372 264.453 61.5689C268.047 59.1099 270.89 55.7046 272.668 51.7299V51.7299Z"
+          fill="#EE2EFF" />
+        <path
+          d="M326.749 30.7643C329.179 30.0274 331.689 29.5908 334.224 29.4643C336.568 29.3955 338.906 29.7131 341.146 30.4043C345.093 31.7467 348.799 33.7119 352.125 36.2253L358.479 40.6563C360.481 42.1867 362.715 43.3856 365.097 44.2073C367.78 44.927 370.617 44.8172 373.236 43.8923L382.865 41.0213L386.865 54.4733L375 58.0003C372.648 58.6882 370.225 59.1082 367.778 59.2523C365.549 59.3502 363.32 59.0657 361.187 58.4113C358.102 57.4839 354.269 55.4506 349.687 52.3113L343.334 47.8793C341.415 46.4421 339.283 45.3148 337.014 44.5383C335.738 44.1467 334.402 43.9892 333.07 44.0733C331.511 44.2081 329.971 44.5099 328.476 44.9733L319.53 47.5663L315.53 34.1163L326.749 30.7643Z"
+          fill="#EE2EFF" />
+        <path
+          d="M428.774 123.877L411.079 108.651L437.695 25.3574L451.995 37.6574L428.695 106.515L493.309 73.2104L507.167 85.1374L428.774 123.877Z"
+          fill="#EE2EFF" />
+        <path d="M521.061 136.112L453 179.091L444.588 165.77L512.651 122.792L521.061 136.112Z" fill="#EE2EFF" />
+        <path
+          d="M477.94 186.5C482.425 181.637 488.192 178.141 494.578 176.414L499.434 174.992L503.7 189.559L499.948 190.659C496.142 191.702 492.686 193.749 489.942 196.586C487.336 199.316 485.553 202.725 484.795 206.422C484.001 210.44 484.23 214.594 485.46 218.5C486.331 222.009 488.16 225.207 490.743 227.737C493.077 229.85 495.532 230.529 498.109 229.774C499.266 229.466 500.309 228.828 501.109 227.937C502.039 226.737 502.737 225.375 503.168 223.919C504.003 221.271 504.674 218.573 505.176 215.842L507.655 203.852C508.789 198.168 510.5 193.852 512.789 190.904C515.344 187.786 518.831 185.568 522.738 184.575C526.45 183.433 530.42 183.439 534.127 184.594C537.93 185.821 541.314 188.089 543.894 191.14C546.858 194.623 549.018 198.715 550.222 203.126C551.223 206.466 551.811 209.916 551.972 213.398C552.089 217.022 551.888 220.649 551.372 224.238L549.429 238.467L533.529 236.536L535.496 223.617C536.009 220.395 536.317 217.143 536.419 213.881C536.459 211.464 536.137 209.053 535.463 206.731C533.977 201.655 531.467 199.634 527.935 200.668C526.751 200.956 525.721 201.687 525.058 202.709C524.256 204.293 523.702 205.991 523.417 207.744L519.861 226.28C518.781 231.87 516.985 236.17 514.473 239.18C511.606 242.414 507.832 244.71 503.641 245.768C499.263 247.086 494.575 246.946 490.283 245.368C485.702 243.676 481.641 240.819 478.5 237.079C474.954 232.92 472.358 228.037 470.895 222.771C468.953 216.417 468.563 209.688 469.76 203.152C470.879 196.947 473.713 191.179 477.94 186.5V186.5Z"
+          fill="#EE2EFF" />
+        <path
+          d="M497.577 272.966C503.527 270.313 510.612 269.474 518.834 270.448L562.229 275.59L560.374 291.235L518.122 286.229C510.28 285.296 504.33 286.482 500.272 289.787C496.214 293.093 493.82 297.826 493.09 303.987C492.357 310.155 493.579 315.318 496.756 319.476C499.933 323.635 505.441 326.179 513.278 327.107L555.53 332.114L553.676 347.759L510.282 342.617C502.06 341.643 495.367 339.171 490.201 335.2C485.227 331.488 481.461 326.388 479.375 320.542C477.37 314.626 476.71 308.337 477.445 302.133C478.18 295.93 480.291 289.969 483.624 284.685C487.019 279.49 491.873 275.413 497.577 272.966Z"
+          fill="#EE2EFF" />
+        <path
+          d="M485.613 382.908L466.313 355.678L475.764 340.023L525.841 412.837L513.775 432.823L426.016 422.43L435.764 406.283L468.848 410.672L485.613 382.908ZM509.132 416.047L494.849 395.871L484.626 412.805L509.132 416.047Z"
+          fill="#EE2EFF" />
+        <path
+          d="M455.375 496.764L416.134 443.828L381.214 469.715L372.514 457.982L420.09 422.715L468.028 487.381L455.375 496.764Z"
+          fill="#EE2EFF" />
+        <path d="M378.145 540.561L347.884 465.961L362.484 460.039L392.745 534.639L378.145 540.561Z" fill="#EE2EFF" />
+        <path
+          d="M266.739 480.121L336.608 472.697L338.782 493.166L289.824 543.932L342.424 538.343L343.967 552.866L276.385 560.046L274.209 539.576L321.909 488.945L268.277 494.645L266.739 480.121Z"
+          fill="#EE2EFF" />
+        <path
+          d="M176.61 539.539L180.656 525.506L222.423 537.545L226.85 522.187L177.35 507.918L181.395 493.885L230.895 508.153L236.627 488.265L187.127 473.996L191.173 459.963L255.813 478.595L233.513 555.941L176.61 539.539Z"
+          fill="#EE2EFF" />
+        <path
+          d="M134.933 459.272C136.085 462.582 138.184 465.481 140.969 467.609L147.475 472.915L170.007 445.289L182.215 455.248L131.337 517.628L96.9368 489.572C93.0184 486.55 89.832 482.683 87.6148 478.259C85.8074 474.662 85.0841 470.618 85.5328 466.619C86.0031 462.91 87.5187 459.411 89.9028 456.531C91.9911 453.778 94.8298 451.688 98.0778 450.51C101.056 449.527 105.407 449.044 111.131 449.062L117.596 449.141L118.066 412.722L134.201 413.861L133.601 446.616C133.494 451.968 133.938 456.186 134.933 459.272ZM108.982 462.889C107.846 462.834 106.713 463.049 105.676 463.515C104.638 463.98 103.725 464.684 103.011 465.569C102.296 466.454 101.801 467.495 101.564 468.607C101.327 469.719 101.356 470.872 101.649 471.971C102.346 474.269 104.031 476.509 106.705 478.691L128.359 496.354L138.244 484.232L116.589 466.57C113.855 464.342 111.32 463.115 108.982 462.889Z"
+          fill="#EE2EFF" />
+        <path
+          d="M69.8599 417.086C67.6443 415.847 65.5887 414.342 63.739 412.604C62.0624 410.965 60.6674 409.061 59.6099 406.969C57.8374 403.196 56.6795 399.163 56.1799 395.025L54.9589 387.376C54.6708 384.872 53.9828 382.432 52.921 380.147C51.5773 377.715 49.5278 375.748 47.043 374.506L38.2939 369.566L45.1939 357.349L55.963 363.449C58.0902 364.666 60.0739 366.118 61.877 367.778C63.4936 369.315 64.8362 371.118 65.8469 373.107C67.3209 375.973 68.5183 380.143 69.439 385.615L70.6589 393.265C70.9562 395.644 71.625 397.962 72.6409 400.134C73.244 401.323 74.0571 402.394 75.041 403.295C76.221 404.322 77.5072 405.222 78.8779 405.977L86.955 410.614L80.0549 422.833L69.8599 417.086Z"
+          fill="#EE2EFF" />
+      </svg>
+
+
+
+
+      <div class="hero__upload" id="upload">Drop Audio File Here</div>
+      <svg class="hero__upload__circle" width="320" height="320" viewBox="0 0 320 320" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <circle cx="160" cy="160" r="159.5" stroke="#B1B1ED" stroke-dasharray="10 10" />
+      </svg>
     </div>
   </div>
+  <div class="control none">
+    <svg class="control__arrow" width="16" height="15" viewBox="0 0 16 15" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.5 1L2 7.5M2 7.5L8.5 14M2 7.5H15.5" stroke="#B1B1ED" stroke-width="2.3" />
+    </svg>
+
+    <div class="control__line"></div>
+    <div class="control__name"></div>
+
+    <svg class="control__play" width="36" height="36" viewBox="0 0 36 36" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path class="control__play__play" d="M29 18L7 31L7 5L29 18Z" fill="#B1B1ED" />
+
+      <rect class="control__play__pause" x="7" y="6" width="8" height="24" fill="#B1B1ED" />
+      <rect class="control__play__pause" x="21" y="6" width="8" height="24" fill="#B1B1ED" />
+    </svg>
 
   </div>
 </body>
+<script>
+  $(document).ready(function () {
+    let initial = true;
+
+    $(".control__play__pause").hide();
+
+    $(".hero__upload").on("dragover", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      $('.hero__color-circle-1').addClass('transform__wheel');
+      $('.hero__color-circle-2').addClass('transform__wheel-2');
+      $('.hero').removeClass('appear');
+      $('.hero__upload').addClass('emphasis');
+    });
+
+    $(".hero__upload").on("dragleave", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      $('.hero__color-circle-1').removeClass('transform__wheel');
+      $('.hero__color-circle-2').removeClass('transform__wheel-2');
+      $('.hero__upload').removeClass('emphasis');
+    });
+
+    $(".hero__upload").on("drop", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      $('.hero__color-circle-1').removeClass('transform__wheel');
+      $('.hero__color-circle-2').removeClass('transform__wheel-2');
+      $('.hero').removeClass('appear');
+      $('.hero').addClass('dissapear');
+      $('.control').addClass('slideUp');
+      $('.control').removeClass('none');
+      setTimeout(function () {
+        $(".control").addClass('fadeOut');
+        initial = false
+      }, 6000);
+
+    });
+
+    $(".control__play").click(function () {
+      $(".control__play__play").toggle();
+      $(".control__play__pause").toggle();
+
+    });
+
+    var timeout;
+    document.onmousemove = function () {
+
+      if (initial == false) {
+
+        $(".control").removeClass('fadeOut')
+
+        $(".control").addClass('fadeIn')
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+
+          $(".control").removeClass('fadeIn')
+          $(".control").addClass('fadeOut')
+        }, 1500);
+      }
+    }
+
+
+
+  });
+</script>
 
 </html>

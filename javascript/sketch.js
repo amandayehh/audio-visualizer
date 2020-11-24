@@ -51,8 +51,8 @@ var playButton;
 var save;
 
 function setup() {
-  var cnv = createCanvas(windowWidth - 250, windowHeight);
-  cnv.position(250, 0);
+  var cnv = createCanvas(windowWidth, windowHeight);
+  // cnv.position(windowWidth / 2, windowHeight / 2);
 
   dropzone = select('#upload');
 
@@ -106,17 +106,21 @@ function loaded() {
   //console.log(playButton);
   if (!song.isPlaying()) {
     song.play();
-    playButton.html('Pause');
+    // playButton.html('Pause');
   } else {
     //  console.log(song);
     song.pause();
-    playButton.html('Play');
+    // playButton.html('Play');
   }
 }
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
 
 function draw() {
   noStroke();
-  var cnv = createCanvas(windowWidth - 220, windowHeight);
+  // var cnv = createCanvas(windowWidth - 220, windowHeight);
 
 
   colorMode(HSB, 360);
@@ -511,18 +515,15 @@ function unhighlight() {
 function gotFile(file) {
   var songfile = file;
   song = loadSound(songfile, loaded);
-  backg = createElement('div');
-  backg.addClass('background');
-  playButton = createElement('div', 'Pause');
-  playButton.addClass('play');
+  playButton = select('.control__play')
   playButton.mousePressed(loaded);
-  songName = createElement('div', 'Song: ' + songfile.name);
-  songName.addClass('name');
-  save = createElement('button', 'Capture this frame');
-  save.addClass('save');
-  save.mousePressed(capture);
-  back = createElement('div', 'Try a different audio');
-  back.addClass('back');
+  songName = select('.control__name')
+  songName.html(songfile.name)
+  // save = createElement('button', 'Capture this frame');
+  // save.addClass('save');
+  // save.mousePressed(capture);
+  back = select('.control__arrow')
+  // back.addClass('back');
   back.mousePressed(newSong);
 }
 
@@ -533,6 +534,6 @@ function capture() {
 }
 
 function newSong() {
-  removeElements();
-  song.stop();
+  location.reload();
+
 }
