@@ -251,9 +251,29 @@ canvas {
     background-color: var(--text-color);
 }
 
+.control__name__container {
+    white-space: nowrap;
+    overflow-y: scroll;
+    width: 40vw;
+}
+
 .control__name {
     margin-left: 20px;
+
 }
+
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+
 
 .control__play {
     position: absolute;
